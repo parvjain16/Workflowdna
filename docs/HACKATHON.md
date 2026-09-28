@@ -24,18 +24,6 @@ The browser and Python service run locally. River training and inference run rem
 
 The judge needs a River account/key with access to the checkpoint for fresh inference, or must train a new checkpoint with their own authorized account. An archive containing a `river://` reference does not grant access to its weights. Never include your API key in the submission.
 
-## Live demo walkthrough
-
-Start the application using `README.md`, open the local URL printed at startup, and wait for River readiness before presenting. The default frontend address is [http://127.0.0.1:3000](http://127.0.0.1:3000). River queue time can extend the sequence below.
-
-1. **0:00–0:15 — Explain the problem.** Atlas Technologies sends every reimbursement through manager, department head, finance, and CFO approval. With submission and payment, the fictional sequential process takes 12 business days.
-2. **0:15–0:35 — Show the trained model.** Analyze the default ordinary **$750** expense with a receipt. Identify the River engine and saved checkpoint. A successful, policy-validated response keeps manager and finance approval, removes department head and CFO approval, and displays **four approvals to two**, **12 days to six**, and **six days / 50% potential savings**. These are the policy reference outcome and projected durations; claim them as a model result only after that River request succeeds.
-3. **0:35–0:50 — Show why it is allowed.** Open the cited policy clauses. P2 requires manager and finance; P3 adds department head only above $1,000; P4 adds CFO only above $5,000. Show that the policy is a local JSON file containing written clauses and human-authored structured rules.
-4. **0:50–1:05 — Show an important boundary.** Point to the exception or missing-receipt evaluation case. Its policy-valid trained response retains all four approvals, requires human review, and claims zero savings. For a longer interactive presentation, analyze that scenario live. If River fails or returns an invalid proposal, show the error; the application must not substitute a rules result as model inference.
-5. **1:05–1:30 — Show evidence.** Open **Model lab**. Compare the original model with the **saved trained checkpoint**, point to the actual five-case scores, and expand a raw response. Show the saved checkpoint path. State the result as recorded, including a tie, regression, or failure if that is what occurred.
-
-The dashboard's **Export report** action downloads the current analysis. It supplements the model evaluation artifact; it does not replace the before/after training evidence.
-
 ## The five held-out scenarios
 
 These are policy reference outcomes, not claimed model predictions. Their inputs are excluded from the 20 training examples and from supervised gradient updates.
