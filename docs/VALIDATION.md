@@ -50,6 +50,6 @@ One dependency deprecation warning remains: the installed Starlette test client 
 - Recommendations do not execute changes in an external reimbursement system.
 - No GBrain integration, production authentication, or public application deployment.
 - River weights and inference require account access/network connectivity; the local checkpoint manifest is not a downloadable copy of the model weights.
-- The user replaced the recording request with a written demo script. No MP4 recording was created.
+- No MP4 recording was created.
 
-See `docs/DEMO_SCRIPT.md` for the verified 85-second judge walkthrough and `docs/HACKATHON.md` for the submission checklist.
+See `docs/HACKATHON.md` for the submission checklist.

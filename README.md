@@ -1,6 +1,6 @@
 # WorkflowDNA
 
-[GitHub repository](https://github.com/parvjain16/Workflowdna) · [85-second demo script](docs/DEMO_SCRIPT.md)
+[GitHub repository](https://github.com/parvjain16/Workflowdna)
 
 A hackathon MVP that uses a custom River AI model to recommend policy-compliant improvements to a fictional company's reimbursement workflow. Next.js provides the dashboard; FastAPI handles inference and policy validation. Company policy lives in a local JSON file. There is no GBrain integration.
 
@@ -97,4 +97,4 @@ See [the submission checklist](docs/HACKATHON.md), [limitations](docs/LIMITATION
 python3 scripts/package_submission.py
 ```
 
-Use [the 85-second demo script](docs/DEMO_SCRIPT.md) for your walkthrough; it includes exact clicks and verified narration. No screen recording was created, per the updated request. `.env`, installed dependencies, caches, and private credentials must never be submitted.
+No screen recording is included. `.env`, installed dependencies, caches, and private credentials must never be submitted.

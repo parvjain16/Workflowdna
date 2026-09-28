@@ -18,7 +18,7 @@ The browser and Python service run locally. River training and inference run rem
 - [ ] Include the completed `artifacts/river_checkpoint.json`, `artifacts/river_evaluation.json`, and `artifacts/river_status.json`. If any operation remains incomplete, retain its truthful status and identify the missing evidence.
 - [ ] Confirm the evaluation report's `checkpoint` equals the checkpoint manifest's `path`, its status is `evaluated`, and both `before.results` and `after_checkpoint.results` contain all five evaluation IDs and raw responses.
 - [ ] Report the actual original-versus-checkpoint metrics from that report. Keep invalid responses and failed cases visible. Do not replace them with policy reference labels or results from a different model.
-- [ ] Include the actual test/build results, dashboard and model-comparison screenshots, and the written 60–90-second script in `docs/DEMO_SCRIPT.md`. A recording is not part of this deliverable. A passing source test does not replace a live River inference demonstration.
+- [ ] Include the actual test/build results and dashboard and model-comparison screenshots. A passing source test does not replace a live River inference demonstration.
 - [ ] Exclude `.env`, API keys, `.venv/`, `node_modules/`, `.next/`, caches, and runtime logs.
 - [ ] Check the hackathon's own portal for its required title, description, team details, repository/archive, and demo materials. Those event-specific requirements are not supplied with this project.
 
@@ -26,7 +26,7 @@ The judge needs a River account/key with access to the checkpoint for fresh infe
 
 ## Live demo walkthrough
 
-Use `docs/DEMO_SCRIPT.md` for the finished 60–90-second narration. Start the application using `README.md`, open the local URL printed at startup, and wait for River readiness before presenting. The default frontend address is [http://127.0.0.1:3000](http://127.0.0.1:3000). River queue time can extend the sequence below.
+Start the application using `README.md`, open the local URL printed at startup, and wait for River readiness before presenting. The default frontend address is [http://127.0.0.1:3000](http://127.0.0.1:3000). River queue time can extend the sequence below.
 
 1. **0:00–0:15 — Explain the problem.** Atlas Technologies sends every reimbursement through manager, department head, finance, and CFO approval. With submission and payment, the fictional sequential process takes 12 business days.
 2. **0:15–0:35 — Show the trained model.** Analyze the default ordinary **$750** expense with a receipt. Identify the River engine and saved checkpoint. A successful, policy-validated response keeps manager and finance approval, removes department head and CFO approval, and displays **four approvals to two**, **12 days to six**, and **six days / 50% potential savings**. These are the policy reference outcome and projected durations; claim them as a model result only after that River request succeeds.
