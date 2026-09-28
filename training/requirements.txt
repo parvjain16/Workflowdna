@@ -1,0 +1,3 @@
+# Official River docs currently describe this API release.
+river-client==0.11.0
+transformers>=4.51,<6

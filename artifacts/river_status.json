@@ -1,0 +1,15 @@
+{
+  "base_model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "sdk": "river-client==0.11.0",
+  "train_count": 20,
+  "eval_count": 5,
+  "docs": [
+    "https://docs.river.ai/guides/sft/",
+    "https://docs.river.ai/python-api/"
+  ],
+  "updated_at": "2026-09-28T00:00:10.232168+00:00",
+  "status": "running",
+  "completed_steps": 14,
+  "total_steps": 15,
+  "message": "River SFT update 14 completed; final checkpoint and evaluation are pending."
+}

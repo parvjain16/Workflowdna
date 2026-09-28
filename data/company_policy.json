@@ -1,0 +1,43 @@
+{
+  "name": "Atlas Technologies",
+  "policy": {
+    "id": "ATLAS-EXP-001",
+    "version": "1.0",
+    "title": "Employee reimbursement policy",
+    "source": "Local JSON; written clauses and structured rules are manually authored together",
+    "interpretation": "The demo uses human-maintained structured rules alongside written policy. It does not automatically extract policy rules from natural language.",
+    "clauses": [
+      {"id": "P1", "text": "Every reimbursement must include a receipt. Automatic routing applies only to ordinary, non-exception reimbursements."},
+      {"id": "P2", "text": "Every ordinary reimbursement requires approval from the employee's manager and the finance team. These are the only required approvals for an amount of $1,000 or less."},
+      {"id": "P3", "text": "A reimbursement greater than $1,000 also requires department head approval. Department head approval is not required for amounts of $1,000 or less."},
+      {"id": "P4", "text": "A reimbursement greater than $5,000 also requires CFO approval. CFO approval is not required for amounts of $5,000 or less."},
+      {"id": "P5", "text": "An exception or a missing receipt requires manual review. Retain all current approval steps until an authorized reviewer resolves the issue; this demo must not recommend removing controls or claim time savings in these cases."}
+    ],
+    "rules": {
+      "currency": "USD",
+      "base_required_approvals": ["manager", "finance"],
+      "amount_thresholds": [
+        {"above": 1000, "additional_approval": "department_head", "clause_id": "P3"},
+        {"above": 5000, "additional_approval": "cfo", "clause_id": "P4"}
+      ],
+      "base_clause_ids": ["P1", "P2"],
+      "manual_review_clause_id": "P5",
+      "manual_review_when": {"exception": true, "receipt_present": false},
+      "approval_order": ["manager", "department_head", "finance", "cfo"]
+    }
+  },
+  "workflow": {
+    "id": "atlas-reimbursement",
+    "name": "Employee reimbursement",
+    "description": "The current fictional workflow sends every expense through four sequential approvals, regardless of amount.",
+    "steps": [
+      {"id": "submit", "label": "Submit expense", "role": "employee", "days": 1, "type": "submission"},
+      {"id": "manager", "label": "Manager approval", "role": "manager", "days": 2, "type": "approval"},
+      {"id": "department-head", "label": "Department head approval", "role": "department_head", "days": 3, "type": "approval"},
+      {"id": "finance", "label": "Finance approval", "role": "finance", "days": 2, "type": "approval"},
+      {"id": "cfo", "label": "CFO approval", "role": "cfo", "days": 3, "type": "approval"},
+      {"id": "payment", "label": "Issue payment", "role": "payroll", "days": 1, "type": "payment"}
+    ]
+  },
+  "default_scenario": {"amount": 750, "exception": false, "receipt_present": true}
+}

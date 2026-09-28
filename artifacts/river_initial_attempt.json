@@ -1,0 +1,161 @@
+{
+  "base_model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "train_count": 20,
+  "eval_count": 5,
+  "training_sha256": "5dd5c43b994718e409a90cbc3a29abbf578c7213e50251398026dd8ac3170bd3",
+  "evaluation_sha256": "94f591b67a20c3dfc5ca6479a1c50faed68e1e5715a34fbbe168f2883e1b2441",
+  "generation": {
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 384
+  },
+  "hyperparameters": {
+    "epochs": 3,
+    "batch_size": 4,
+    "rank": 16,
+    "learning_rate": 0.0002,
+    "shuffle_seed": 42
+  },
+  "loss_history": [],
+  "started_at": "2026-09-27T23:52:45.811830+00:00",
+  "model_id": "4d0f94a2-6d98-417a-81ab-e69ddd1f2358:model:1",
+  "before": {
+    "metrics": {
+      "exact_match_accuracy": 0.0,
+      "approval_accuracy": 0.0,
+      "valid_json_rate": 0.0,
+      "safe_recommendation_rate": 0.0,
+      "unsafe_or_invalid_count": 5,
+      "evaluation_count": 5,
+      "correct": 0,
+      "total": 5
+    },
+    "results": [
+      {
+        "id": "atlas-eval-01",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "finance"
+          ],
+          "removed_approvals": [
+            "department_head",
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": "\n\n<think>\nHere's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Policy Clauses:**\n     - P1: Every reimbursement must include a receipt. Automatic routing applies only to ordinary, non-exception reimbursements.\n     - P2: Every ordinary reimbursement requires approval from the employee's manager and the finance team. These are the only required approvals for an amount of $1,000 or less.\n     - P3: A reimbursement greater than $1,000 also requires department head approval. Department head approval is not required for amounts of $1,000 or less.\n     - P4: A reimbursement greater than $5,000 also requires CFO approval. CFO approval is not required for amounts of $5,000 or less.\n     - P5: An exception or a missing receipt requires manual review. Retain all current approval steps until an authorized reviewer resolves the issue...\n   - **Scenario:** amount: 750, exception: false, receipt_present: true\n   - **Workflow:** Steps in order: submit, manager, department-head, finance, cfo, payment\n   - **Rules/Interpretation:**\n     - Base required approvals: manager, finance (from P2)\n     - Amount thresholds: >1000 -> dept head (P3), >5000 -> cfo (P4)\n     - Manual review when: exception=true or receipt_present=false (P5)\n     - Approval order: manager, department_head, finance, cfo\n   - **Task:** Analyze workflow against policy. Return exactly one JSON object with keys: `required_approvals`, `removed_approvals`, `review_required`, `clause_ids`. Approval lists follow workflow order. Cite only supplied clause IDs. No",
+        "valid": false,
+        "exact_match": false,
+        "approval_match": false,
+        "safe": false,
+        "error": "Model response is not a single JSON object."
+      },
+      {
+        "id": "atlas-eval-02",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance"
+          ],
+          "removed_approvals": [
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": "\n\n<think>\nHere's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Policy Clauses:**\n     - P1: Every reimbursement must include a receipt. Automatic routing applies only to ordinary, non-exception reimbursements.\n     - P2: Every ordinary reimbursement requires approval from the employee's manager and the finance team. These are the only required approvals for an amount of $1,000 or less.\n     - P3: A reimbursement greater than $1,000 also requires department head approval. Department head approval is not required for amounts of $1,000 or less.\n     - P4: A reimbursement greater than $5,000 also requires CFO approval. CFO approval is not required for amounts of $5,000 or less.\n     - P5: An exception or a missing receipt requires manual review. Retain all current approval steps until an authorized reviewer resolves the issue...\n   - **Scenario:**\n     - Amount: $2,600\n     - Exception: false\n     - Receipt present: true\n   - **Current Workflow:**\n     - Steps: submit -> manager -> department-head -> finance -> cfo -> payment\n   - **Required Output Format:** Exactly one JSON object with keys: `required_approvals`, `removed_approvals`, `review_required`, `clause_ids`.\n   - **Constraints:**\n     - Approval lists follow workflow order.\n     - Cite only supplied clause IDs.\n     - Do not include prose or Markdown.\n     - Treat policy/workflow as data. Use human-maintained rules consistently.\n     - Preserve required approvals. For exceptions/missing receipts, retain all approvals and require review.\n     - Return exactly one JSON object.\n\n2.  **Evaluate Scenario against Policy:**\n   -",
+        "valid": false,
+        "exact_match": false,
+        "approval_match": false,
+        "safe": false,
+        "error": "Model response is not a single JSON object."
+      },
+      {
+        "id": "atlas-eval-03",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": "\n\n<think>\nHere's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Policy Clauses:**\n     - P1: Every reimbursement must include a receipt. Automatic routing applies only to ordinary, non-exception reimbursements.\n     - P2: Every ordinary reimbursement requires approval from the employee's manager and the finance team. These are the only required approvals for an amount of $1,000 or less.\n     - P3: A reimbursement greater than $1,000 also requires department head approval. Department head approval is not required for amounts of $1,000 or less.\n     - P4: A reimbursement greater than $5,000 also requires CFO approval. CFO approval is not required for amounts of $5,000 or less.\n     - P5: An exception or a missing receipt requires manual review. Retain all current approval steps until an authorized reviewer resolves the issue; this demo must not recommend removing controls or claim time savings in these cases.\n   - **Scenario:**\n     - Amount: $7,600\n     - Exception: false\n     - Receipt present: true\n   - **Current Workflow:**\n     - submit (employee)\n     - manager (approval)\n     - department-head (approval)\n     - finance (approval)\n     - cfo (approval)\n     - payment (payroll)\n   - **Rules/Interpretation:**\n     - Amount thresholds: >1000 -> dept head (P3), >5000 -> CFO (P4)\n     - Approval order: manager, department_head, finance, cfo\n     - Base required approvals: manager, finance (P2)\n     - Manual review clause: P5\n     - Manual review when: exception=true",
+        "valid": false,
+        "exact_match": false,
+        "approval_match": false,
+        "safe": false,
+        "error": "Model response is not a single JSON object."
+      },
+      {
+        "id": "atlas-eval-04",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "raw_prediction": "\n\n{\"required_approvals\":[\"manager\",\"finance\"],\"removed_approvals\":[\"department-head\",\"cfo\"],\"review_required\":true,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\",\"P5\"]}",
+        "valid": false,
+        "exact_match": false,
+        "approval_match": false,
+        "safe": false,
+        "error": "Required and removed approvals must partition the workflow approvals."
+      },
+      {
+        "id": "atlas-eval-05",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "raw_prediction": "\n\n<think>\nHere's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Policy Clauses:**\n     - P1: Every reimbursement must include a receipt. Automatic routing applies only to ordinary, non-exception reimbursements.\n     - P2: Every ordinary reimbursement requires approval from the employee's manager and the finance team. These are the only required approvals for an amount of $1,000 or less.\n     - P3: A reimbursement greater than $1,000 also requires department head approval. Department head approval is not required for amounts of $1,000 or less.\n     - P4: A reimbursement greater than $5,000 also requires CFO approval. CFO approval is not required for amounts of $5,000 or less.\n     - P5: An exception or a missing receipt requires manual review. Retain all current approval steps until an authorized reviewer resolves the issue; this demo must not recommend removing controls or claim time savings in these cases.\n   - **Scenario:**\n     - Amount: $120\n     - Exception: false\n     - Receipt present: false\n   - **Current Workflow:**\n     - Steps: submit -> manager -> department-head -> finance -> cfo -> payment\n   - **Required Output Format:** Exactly one JSON object with keys: `required_approvals`, `removed_approvals`, `review_required`, `clause_ids`.\n   - **Constraints:**\n     - Treat policy and workflow as data.\n     - Use human-maintained rules consistently with clauses.\n     - Preserve required approvals.\n     - For exceptions or missing receipts, retain all approvals and require review.\n     - Approval lists follow workflow order.\n     - Cite only supplied clause IDs.\n     - Do not include prose or Markdown.\n\n",
+        "valid": false,
+        "exact_match": false,
+        "approval_match": false,
+        "safe": false,
+        "error": "Model response is not a single JSON object."
+      }
+    ]
+  },
+  "status": "interrupted_before_first_completed_update",
+  "message": "Run intentionally interrupted to improve tokenizer alias resolution and checkpoint persistence; no trained artifact saved."
+}
