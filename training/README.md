@@ -1,5 +1,13 @@
 # River AI training and evaluation
 
+The authenticated run completed on 2026-09-28 at 00:01:08 UTC, after 15 optimizer
+updates. On the same five held-out scenarios, original weights produced 0/5 full
+target matches and 0/5 policy-guardrail passes; the saved trained checkpoint
+produced 5/5 on both measures. Valid structured responses improved from 2/5 to 5/5.
+These results measure this demo's structured output and policy checks, not general
+model intelligence. A separate real saved-checkpoint inference call also passed
+the application's default $750.0 scenario; see `artifacts/river_inference_smoke.json`.
+
 WorkflowDNA uses River AI for model training and inference. The 20 training
 examples and five separate held-out evaluation examples are fictional Atlas
 reimbursement workflow instances governed by one policy. They cover approval

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "executed_at": "2026-09-28T00:02:05.927438+00:00",
+  "checkpoint": "river://11b25b7a-4614-4830-88fb-de82e34bfa29/sampler_weights/workflowdna-2026-09-28T00-00-26-490564-00-00",
+  "scenario": {
+    "amount": 750.0,
+    "exception": false,
+    "receipt_present": true
+  },
+  "prediction": {
+    "required_approvals": [
+      "manager",
+      "finance"
+    ],
+    "removed_approvals": [
+      "department_head",
+      "cfo"
+    ],
+    "review_required": false,
+    "clause_ids": [
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ]
+  },
+  "source": "Actual training.river_inference.predict API call from saved River checkpoint"
+}

@@ -1,1 +1,1 @@
-"""WorkflowDNA supervised demonstrations. Local and River models are separate."""
+"""WorkflowDNA River AI supervised training, evaluation, and checkpoint inference."""

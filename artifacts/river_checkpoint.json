@@ -1,0 +1,37 @@
+{
+  "status": "trained",
+  "path": "river://11b25b7a-4614-4830-88fb-de82e34bfa29/sampler_weights/workflowdna-2026-09-28T00-00-26-490564-00-00",
+  "mode": "inference",
+  "base_model": "Qwen/Qwen3.6-35B-A3B-FP8",
+  "saved_at": "2026-09-28T00:00:47.636855+00:00",
+  "train_count": 20,
+  "training_sha256": "5dd5c43b994718e409a90cbc3a29abbf578c7213e50251398026dd8ac3170bd3",
+  "training_ids": [
+    "atlas-train-01",
+    "atlas-train-02",
+    "atlas-train-03",
+    "atlas-train-04",
+    "atlas-train-05",
+    "atlas-train-06",
+    "atlas-train-07",
+    "atlas-train-08",
+    "atlas-train-09",
+    "atlas-train-10",
+    "atlas-train-11",
+    "atlas-train-12",
+    "atlas-train-13",
+    "atlas-train-14",
+    "atlas-train-15",
+    "atlas-train-16",
+    "atlas-train-17",
+    "atlas-train-18",
+    "atlas-train-19",
+    "atlas-train-20"
+  ],
+  "policy_fingerprints": [
+    "27f17c20087850a10247588b6ec3cbc6d02a7a1b8ff54ddc011a1d24934edc22"
+  ],
+  "model_id": "c32fdbd6-406d-49e5-a888-dc2fc5abda48:model:1",
+  "step": 15,
+  "prompt_protocol": "chat_no_thinking_v1"
+}

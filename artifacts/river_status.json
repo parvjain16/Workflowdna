@@ -7,9 +7,19 @@
     "https://docs.river.ai/guides/sft/",
     "https://docs.river.ai/python-api/"
   ],
-  "updated_at": "2026-09-28T00:00:10.232168+00:00",
-  "status": "running",
-  "completed_steps": 14,
-  "total_steps": 15,
-  "message": "River SFT update 14 completed; final checkpoint and evaluation are pending."
+  "updated_at": "2026-09-28T00:01:08.053369+00:00",
+  "status": "trained",
+  "checkpoint": "river://11b25b7a-4614-4830-88fb-de82e34bfa29/sampler_weights/workflowdna-2026-09-28T00-00-26-490564-00-00",
+  "metrics": {
+    "exact_match_accuracy": 1.0,
+    "approval_accuracy": 1.0,
+    "valid_json_rate": 1.0,
+    "safe_recommendation_rate": 1.0,
+    "policy_guardrail_pass_rate": 1.0,
+    "unsafe_or_invalid_count": 0,
+    "evaluation_count": 5,
+    "correct": 5,
+    "total": 5
+  },
+  "message": "River SFT completed; inference checkpoint saved and sampled on five held-out examples. Inspect the evaluation report for failures."
 }

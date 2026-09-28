@@ -88,6 +88,11 @@
       "epoch": 3,
       "step": 14,
       "loss": 9.950995445251465e-05
+    },
+    {
+      "epoch": 3,
+      "step": 15,
+      "loss": 0.005893230438232422
     }
   ],
   "started_at": "2026-09-27T23:55:38.909515+00:00",
@@ -262,5 +267,440 @@
         "error": "Required and removed approvals must partition the workflow approvals."
       }
     ]
-  }
+  },
+  "after_live": {
+    "metrics": {
+      "exact_match_accuracy": 1.0,
+      "approval_accuracy": 1.0,
+      "valid_json_rate": 1.0,
+      "safe_recommendation_rate": 1.0,
+      "policy_guardrail_pass_rate": 1.0,
+      "unsafe_or_invalid_count": 0,
+      "evaluation_count": 5,
+      "correct": 5,
+      "total": 5
+    },
+    "results": [
+      {
+        "id": "atlas-eval-01",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "finance"
+          ],
+          "removed_approvals": [
+            "department_head",
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"finance\"],\"removed_approvals\":[\"department_head\",\"cfo\"],\"review_required\":false,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "finance"
+          ],
+          "removed_approvals": [
+            "department_head",
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-02",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance"
+          ],
+          "removed_approvals": [
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\"],\"removed_approvals\":[\"cfo\"],\"review_required\":false,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance"
+          ],
+          "removed_approvals": [
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-03",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\",\"cfo\"],\"removed_approvals\":[],\"review_required\":false,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-04",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\",\"cfo\"],\"removed_approvals\":[],\"review_required\":true,\"clause_ids\":[\"P1\",\"P5\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-05",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\",\"cfo\"],\"removed_approvals\":[],\"review_required\":true,\"clause_ids\":[\"P1\",\"P5\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      }
+    ]
+  },
+  "after_checkpoint": {
+    "metrics": {
+      "exact_match_accuracy": 1.0,
+      "approval_accuracy": 1.0,
+      "valid_json_rate": 1.0,
+      "safe_recommendation_rate": 1.0,
+      "policy_guardrail_pass_rate": 1.0,
+      "unsafe_or_invalid_count": 0,
+      "evaluation_count": 5,
+      "correct": 5,
+      "total": 5
+    },
+    "results": [
+      {
+        "id": "atlas-eval-01",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "finance"
+          ],
+          "removed_approvals": [
+            "department_head",
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"finance\"],\"removed_approvals\":[\"department_head\",\"cfo\"],\"review_required\":false,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "finance"
+          ],
+          "removed_approvals": [
+            "department_head",
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-02",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance"
+          ],
+          "removed_approvals": [
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\"],\"removed_approvals\":[\"cfo\"],\"review_required\":false,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance"
+          ],
+          "removed_approvals": [
+            "cfo"
+          ],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-03",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\",\"cfo\"],\"removed_approvals\":[],\"review_required\":false,\"clause_ids\":[\"P1\",\"P2\",\"P3\",\"P4\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": false,
+          "clause_ids": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-04",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\",\"cfo\"],\"removed_approvals\":[],\"review_required\":true,\"clause_ids\":[\"P1\",\"P5\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      },
+      {
+        "id": "atlas-eval-05",
+        "expected": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "raw_prediction": " {\"required_approvals\":[\"manager\",\"department_head\",\"finance\",\"cfo\"],\"removed_approvals\":[],\"review_required\":true,\"clause_ids\":[\"P1\",\"P5\"]}",
+        "prediction": {
+          "required_approvals": [
+            "manager",
+            "department_head",
+            "finance",
+            "cfo"
+          ],
+          "removed_approvals": [],
+          "review_required": true,
+          "clause_ids": [
+            "P1",
+            "P5"
+          ]
+        },
+        "valid": true,
+        "exact_match": true,
+        "approval_match": true,
+        "safe": true,
+        "guardrail_pass": true
+      }
+    ]
+  },
+  "status": "evaluated",
+  "checkpoint": "river://11b25b7a-4614-4830-88fb-de82e34bfa29/sampler_weights/workflowdna-2026-09-28T00-00-26-490564-00-00",
+  "completed_at": "2026-09-28T00:01:08.052464+00:00"
 }

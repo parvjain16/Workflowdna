@@ -1,5 +1,7 @@
 # WorkflowDNA
 
+[GitHub repository](https://github.com/parvjain16/Workflowdna) · [85-second demo script](docs/DEMO_SCRIPT.md)
+
 A hackathon MVP that uses a custom River AI model to recommend policy-compliant improvements to a fictional company's reimbursement workflow. Next.js provides the dashboard; FastAPI handles inference and policy validation. Company policy lives in a local JSON file. There is no GBrain integration.
 
 ## Run locally
@@ -47,6 +49,19 @@ Evidence is written only after actual operations:
 
 The app displays "trained" only when a valid checkpoint and matching completed evaluation exist. It does not simulate training, manufacture checkpoints, silently substitute deterministic outputs, or promise that fine-tuning improves every metric. These five examples were inspected during development, so this is a small development holdout, not an untouched external benchmark.
 
+## Verified River result
+
+The completed 15-update run saved an inference checkpoint and sampled it on all five held-out scenarios using the same no-thinking Qwen chat protocol as the original model.
+
+| Metric | Original model | Saved trained checkpoint |
+| --- | --- | --- |
+| Exact structured matches | 0/5 | 5/5 |
+| Correct approval routing | 2/5 | 5/5 |
+| Valid structured responses | 2/5 | 5/5 |
+| Passes all policy checks | 0/5 | 5/5 |
+
+Checkpoint: `river://11b25b7a-4614-4830-88fb-de82e34bfa29/sampler_weights/workflowdna-2026-09-28T00-00-26-490564-00-00`. These are actual observed development-holdout results, not a claim about real-world accuracy. The full evidence is in `artifacts/river_evaluation.json`.
+
 ## Tests and build
 
 ```sh
@@ -55,6 +70,8 @@ npm --prefix frontend run typecheck
 npm --prefix frontend run build
 # With both local servers running:
 npm --prefix frontend test
+# Uses system Chrome and real River inference (incurs credits):
+npm --prefix frontend run test:e2e
 ```
 
 Python tests cover thresholds, manual-review controls, malformed inputs, rejected model proposals, unavailable checkpoints, truthful metadata, split isolation, prompt masks, and inference protocol consistency. HTTP smoke tests verify the live frontend/backend proxy without paid inference. The application is also checked in a browser; real River behavior is recorded separately in the evaluation report.
@@ -80,4 +97,4 @@ See [the submission checklist](docs/HACKATHON.md), [limitations](docs/LIMITATION
 python3 scripts/package_submission.py
 ```
 
-Include `WorkflowDNA_Demo.mp4` and the matching narration when available. `.env`, installed dependencies, caches, and private credentials must never be submitted.
+Use [the 85-second demo script](docs/DEMO_SCRIPT.md) for your walkthrough; it includes exact clicks and verified narration. No screen recording was created, per the updated request. `.env`, installed dependencies, caches, and private credentials must never be submitted.

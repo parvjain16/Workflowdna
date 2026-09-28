@@ -12,6 +12,7 @@ export default defineConfig({
     browserName: "chromium",
     channel: "chrome",
     headless: true,
+    actionTimeout: 15_000,
     screenshot: "only-on-failure",
   },
 });

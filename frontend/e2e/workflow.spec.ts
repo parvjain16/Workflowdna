@@ -1,6 +1,5 @@
 import { expect, test } from "@playwright/test";
 import fs from "node:fs/promises";
-import path from "node:path";
 
 test("real saved River checkpoint drives the workflow, policy, comparison, and export", async ({ page }) => {
   const errors: string[] = [];
@@ -22,7 +21,7 @@ test("real saved River checkpoint drives the workflow, policy, comparison, and e
 
   await page.getByRole("button", { name: "Company policy", exact: true }).click();
   await expect(page.getByText("These are the only required approvals for an amount of $1,000 or less.", { exact: false })).toBeVisible();
-  await page.getByRole("button", { name: "Model lab SFT", exact: true }).click();
+  await page.getByRole("button", { name: /^Model lab/ }).click();
   await expect(page.getByRole("heading", { name: "Unseen examples, side by side" })).toBeVisible();
   await expect(page.locator(".evaluation-table tbody tr")).toHaveCount(5);
   await expect(page.getByText("river://", { exact: false }).first()).toBeVisible();
@@ -61,6 +60,6 @@ test("mobile navigation and workflow remain usable without page overflow", async
   await page.screenshot({ path: "../docs/mobile.png", fullPage: true });
   await page.getByRole("button", { name: "Company policy", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Employee reimbursement policy" })).toBeVisible();
-  await page.getByRole("button", { name: "Model lab SFT", exact: true }).click();
+  await page.getByRole("button", { name: /^Model lab/ }).click();
   await expect(page.getByRole("heading", { name: "Your WorkflowDNA model" })).toBeVisible();
 });
