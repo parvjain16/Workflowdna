@@ -2,7 +2,7 @@
 
 [GitHub repository](https://github.com/parvjain16/Workflowdna)
 
-A hackathon MVP that uses a custom River AI model to recommend policy-compliant improvements to a fictional company's reimbursement workflow. Next.js provides the dashboard; FastAPI handles inference and policy validation. Company policy lives in a local JSON file. There is no GBrain integration.
+WorkflowDNA maps fictional Atlas Technologies' reimbursement process against a local JSON policy. A custom River AI model recommends changes, while FastAPI verifies required controls. The Next.js dashboard visualizes current and proposed workflows and exports a report. A model lab compares original and trained outputs on five held-out examples.
 
 ## Run locally
 
@@ -89,9 +89,9 @@ The `rules` engine is retained only as an explicitly labeled backend diagnostic 
 
 ## Scope and submission
 
-Written clauses and human-maintained structured policy rules are stored together; automatic extraction from arbitrary policy prose is incomplete. This MVP covers one fictional process and does not execute changes in real reimbursement systems. It has no production authentication, deployment, or GBrain integration.
+Written clauses and human-maintained structured policy rules are stored together; automatic extraction from arbitrary policy prose is incomplete. This demonstration covers one fictional process and does not execute changes in real reimbursement systems. It has no production authentication or deployment.
 
-See [the submission checklist](docs/HACKATHON.md), [limitations](docs/LIMITATIONS.md), and [training details](training/README.md). To create a source-and-evidence ZIP with credentials excluded:
+See [the submission checklist](docs/SUBMISSION.md), [limitations](docs/LIMITATIONS.md), and [training details](training/README.md). To create a source-and-evidence ZIP with credentials excluded:
 
 ```sh
 python3 scripts/package_submission.py

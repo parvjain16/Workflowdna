@@ -1,12 +1,6 @@
-# WorkflowDNA hackathon submission
+# WorkflowDNA submission
 
 WorkflowDNA is a local Next.js and Python demonstration of policy-aware reimbursement routing for fictional Atlas Technologies. River AI supplies the original language model, supervised fine-tuning, saved model weights, and checkpoint inference. No GBrain integration is included.
-
-The source project is stored on this Mac at:
-
-```text
-/Users/parvj/.codex/visualizations/2026/09/27/01a0e53f-da08-7320-816d-e79cfd9c8206/WorkflowDNA
-```
 
 The browser and Python service run locally. River training and inference run remotely. The local checkpoint manifest records a `river://` reference to weights stored by River; it is not a downloaded model-weight file.
 

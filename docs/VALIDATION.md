@@ -52,4 +52,4 @@ One dependency deprecation warning remains: the installed Starlette test client 
 - River weights and inference require account access/network connectivity; the local checkpoint manifest is not a downloadable copy of the model weights.
 - No MP4 recording was created.
 
-See `docs/HACKATHON.md` for the submission checklist.
+See `docs/SUBMISSION.md` for the submission checklist.
